@@ -18,7 +18,6 @@
                 <th>Ranking</th>
                 <th>Alternatif</th>
                 <th>Nilai</th>
-                <th>Keterangan</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -27,7 +26,6 @@
                 <td class="text-center">{{ ($i+1) }}</td>
                 <td>{{ $alternatifrangking[$i] }}</td>
                 <td>{{ round($hasilrangking[$i], 2) }}</td>
-                <td>{{ nilai_text($hasilrangking[$i]) }}</td>
                 <td><a href="{{ url('/checkout', $alternatifrangking_id[$i]) }}" class="btn btn-success btn-xs">Pesan</a></td>
               </tr>
             @endfor

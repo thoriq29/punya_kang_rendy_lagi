@@ -69,7 +69,10 @@ function getCriteriaDisplayName($value, $criteriaName)
 	else if($criteriaName == "Durasi") {
 		return getDurasiType($value);
 	}
-	return '';
+	else if($criteriaName == "Ibadah") {
+		return getIbadahType($value);
+	}
+		return '';
 }
 
 function getDurasiType($value)
@@ -78,6 +81,7 @@ function getDurasiType($value)
 	if($value <= 50) {
 		$text = "9 Hari";
 	} else if($value > 50 && $value <= 60) {
+		$value=55;
 		$text = "11 Hari";
 	} else if($value > 60 && $value <= 100) {
 		$text = "12 Hari";
@@ -120,3 +124,16 @@ function getAscendingType($value)
 	}
 	return $text;
 }
+function getIbadahType($value)
+{
+	$text = "";
+	if($value <= 55) {
+		$text = "Normal";
+	} else if($value > 55 && $value <= 66) {
+		$text = "Khusyuk";
+	 } else {
+		$text = "Sangat Khusyuk";
+	}
+	return $text;
+}
+
