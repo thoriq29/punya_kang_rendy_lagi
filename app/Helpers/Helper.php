@@ -40,6 +40,15 @@ function diff_days($start_date, $end_date)
 	return $res;
 }
 
+function diff_full_date($start_date, $end_date)
+{
+	$start = Carbon::parse($start_date);
+	if(strtotime($start) <= strtotime($end_date)) {
+		return Carbon::parse($end_date)->diffInDays($start);
+	}
+	return -1;
+}
+
 function nilai_text($nilai)
 {
 	$text = "";

@@ -60,6 +60,8 @@
                 <thead>
                   <tr>
                   <th>Nama Paket</th>
+                  <th>Batas Penutupan</th>
+                  <th>Tanggal Penutupan</th>
                   <th>Tanggal Berangkat</th>
                   <th>Tanggal Pulang</th>
                   <th>Harga</th>
@@ -67,9 +69,29 @@
               </thead>
               <tbody>
                 @foreach ($packages as $key => $item)  
-                <tr>
+                @php
+                    $color = 'white';
+                    $textColor = 'black';
+                    $diff = diff_full_date(date('Y-m-d'), $item->closing_date);
+                    $text  = $diff.' Hari';
+                    if($diff == 0) {
+                      $color = 'cadetblue';
+                      $text = "Ditutup Hari ini";
+                      $textColor = 'white';
+                    } else if($diff == -1 ) {
+                      $color = 'red';
+                      $text = "Sudah ditutup";
+                      $textColor = 'white';
+                    }
+                    else if($diff > 0 && $diff < 10) {
+                      $color = 'yellow';
+                    }
+                @endphp
+                <tr style="background: {{ $color }}; color: {{ $textColor }}">
                   <td style="display:none;" class="text-center"><input id="alternatif{{ $item->id }}" name="alternatif{{ $item->id }}" class="cb-paket" type="checkbox" value="true" checked></td>
                   <td><input id="alternatif{{ $item->id }}" name="alternatif{{ $item->id }}" class="cb-paket" type="hidden" value="true" checked>  {{ $item->name }}</td>
+                  <td>{{ $text }}  </td>
+                  <td>{{ date_dmy($item->closing_date) }}</td>
                   <td>{{ date_dmy($item->start_date) }}</td>
                   <td>{{ date_dmy($item->end_date) }}</td>
                   <td>Rp {{ rupiah($item->price) }}</td>

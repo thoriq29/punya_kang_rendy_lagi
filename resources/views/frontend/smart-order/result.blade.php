@@ -32,7 +32,7 @@
           </table>
 
           <div class="alert alert-info" role="alert">
-            <i class="fa fa-trophy"></i> &nbsp Alternatif Paket Umroh Terbaik Adalah : <strong>{{ $alternatifrangking[0] }}</strong> dengan Nilai Terbesar : <strong>{{ round($hasilrangking[0], 2) }}</strong>
+            <i class="fa fa-trophy"></i> &nbsp Alternatif Paket Umroh Terbaik Adalah : <strong>{{ $alternatifrangking[0] }}</strong> dengan Nilai Terbesar : <strong>{{ round($hasilrangking[0], 2) }}</strong> dengan kecepatan proses SMART <strong>{{$execution_time}}</strong>
           </div>
         </div>
       </div>   
@@ -150,7 +150,7 @@
             </table>
 
             <div class="alert alert-info" role="alert">
-              <i class="fa fa-trophy"></i> &nbsp Alternatif Paket Umroh Terbaik Adalah : <strong>{{ $alternatifrangking[0] }}</strong> dengan Nilai Terbesar : <strong>{{ round($hasilrangking[0], 2)}}</strong>
+              <i class="fa fa-trophy"></i> &nbsp Alternatif Paket Umroh Terbaik Adalah : <strong>{{ $alternatifrangking[0] }}</strong> dengan Nilai Terbesar : <strong>{{ round($hasilrangking[0], 2)}}</strong> dengan kecepatan proses SMART <strong>{{$execution_time}}</strong>
             </div>
             
           </div>

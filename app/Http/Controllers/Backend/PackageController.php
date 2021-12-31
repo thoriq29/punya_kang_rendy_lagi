@@ -72,16 +72,19 @@ class PackageController extends Controller
             'description' => 'required|string',
             'quota' => 'required|numeric',
             'start_date' => 'required|date',
+            'closing_date' => 'required|date',
             'end_date' => 'required|date',
             'price' => 'required|numeric',
             'image' => 'required|image',
         ]);
+        
 
         $package = new Package;
         $package->name = $request->name;
         $package->description = $request->description;
         $package->quota = $request->quota;
         $package->start_date = $request->start_date;
+        $package->closing_date = $request->closing_date;
         $package->end_date = $request->end_date;
         $package->price = $request->price;
 
@@ -146,6 +149,7 @@ class PackageController extends Controller
             'description' => 'required|string',
             'quota' => 'required|numeric',
             'start_date' => 'required|date',
+            'closing_date' => 'required|date',
             'end_date' => 'required|date',
             'price' => 'required|numeric',
             'status' => 'required|numeric'
@@ -156,6 +160,7 @@ class PackageController extends Controller
         $package->description = $request->description;
         $package->quota = $request->quota;
         $package->start_date = $request->start_date;
+        $package->closing_date = $request->closing_date;
         $package->end_date = $request->end_date;
         $package->price = $request->price;
         $package->status = $request->status;

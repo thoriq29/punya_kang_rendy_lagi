@@ -36,6 +36,7 @@
                   <th>#</th>
                   <th>Nama Paket</th>
                   <th>Kuota</th>
+                  <th>Tgl. Penutupan</th>
                   <th>Tgl. Berangkat</th>
                   <th>Tgl. Pulang</th>
                   <th>Harga</th>
@@ -73,6 +74,7 @@
             {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
             {data: 'name', name: 'name'},
             {data: 'quota', name: 'quota'},
+            {data: 'closing_date', name: 'closing_date'},
             {data: 'start_date', name: 'start_date'},
             {data: 'end_date', name: 'end_date'},
             {data: null, name: 'price', render: function ( data, type, row ) {

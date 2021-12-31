@@ -63,6 +63,17 @@
                   @endif
                 </div>
               </div>
+              <div class="row">
+                <div class="form-group col-6 {{ $errors->has('closing_date') ? ' has-error' : '' }}">
+                  <label for="closing_date">Tanggal Penutupan Pendaftaran</label>
+                  <input id="closing_date" type="date" class="form-control @if ($errors->has('closing_date')) is-invalid @endif" name="closing_date" tabindex="1" value="{{ old('closing_date') }}">
+                  @if ($errors->has('closing_date'))
+                    <div class="invalid-feedback">
+                      {{ $errors->first('closing_date') }}
+                    </div>
+                  @endif
+                </div>
+              </div>
 
               <div class="row">
                 <div class="form-group col-12 {{ $errors->has('price') ? ' has-error' : '' }}">

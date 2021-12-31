@@ -19,7 +19,7 @@ class SmartOrderController extends Controller
      */
     public function index()
     {
-        $packages = Package::where([['status', 100], ['start_date', '>',  date('Y-m-d')]])->get();
+        $packages = Package::where([['status', 100], ['start_date', '>',  date('Y-m-d')]])->orderByDesc('start_date')->get();
         $alternatif = AlternativeCriteria::select(
             "alternative_criteria.alternative_id",
             "alternative_criteria.criteria_id",
@@ -78,6 +78,7 @@ class SmartOrderController extends Controller
      */
     public function process(Request $request)
     {
+        $time_start = microtime(true); 
         $alternatif = array(); 
         $alternatif_ids = array(); 
         
@@ -177,8 +178,10 @@ class SmartOrderController extends Controller
                 }
             }
         }
+        $time_end = microtime(true);
+        $execution_time = round(($time_end - $time_start)/60, 5) . " Detik";
 
-        return view('frontend.smart-order.result')->with(compact('alternatif', 'alternatifrangking_id', 'kriteria', 'bobot', 'alternatifkriteria', 'normalisasibobot', 'total_nilai', 'hasilrangking', 'alternatifrangking'));
+        return view('frontend.smart-order.result')->with(compact('alternatif', 'execution_time','alternatifrangking_id', 'kriteria', 'bobot', 'alternatifkriteria', 'normalisasibobot', 'total_nilai', 'hasilrangking', 'alternatifrangking'));
     }
 
     /**
